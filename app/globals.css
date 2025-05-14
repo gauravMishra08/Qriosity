@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0f0f0f;
+  --foreground: #ffffff;
+  --primary: #00ff90;
+  --primary-foreground: #0f0f0f;
+  --secondary: #888888;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
+  --accent: #00ff90;
+  --accent-foreground: #0f0f0f;
+  --destructive: #ff4545;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #333333;
+  --ring: #00ff90;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0f0f0f;
+  --foreground: #ffffff;
+  --primary: #00ff90;
+  --primary-foreground: #0f0f0f;
+  --secondary: #888888;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
+  --accent: #00ff90;
+  --accent-foreground: #0f0f0f;
+  --destructive: #ff4545;
+  --destructive-foreground: #ffffff;
+  --border: #333333;
+  --input: #333333;
+  --ring: #00ff90;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground font-mono;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .terminal-glow {
+    text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+
+  .terminal-border {
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 5px var(--primary), inset 0 0 5px var(--primary);
+  }
+
+  .terminal-input {
+    @apply bg-background border-primary text-foreground;
+    box-shadow: 0 0 3px var(--primary), inset 0 0 3px var(--primary);
+  }
+
+  .terminal-card {
+    @apply bg-muted border border-primary rounded-md;
+    box-shadow: 0 0 5px var(--primary);
+  }
+
+  .typing-animation::after {
+    content: "|";
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .terminal-loading::after {
+    content: "";
+    animation: loading 1.5s steps(3, end) infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      content: ".";
+    }
+    33% {
+      content: "..";
+    }
+    66% {
+      content: "...";
+    }
+    100% {
+      content: ".";
+    }
+  }
+
+  .scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+    opacity: 0.3;
+    z-index: 9999;
+  }
+
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+}
