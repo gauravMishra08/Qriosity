@@ -104,16 +104,15 @@ export default function QuestionForm({ onSuccess }: QuestionFormProps) {
         <div className="space-y-2">
           <label htmlFor="author" className="flex items-center text-sm font-medium text-primary">
             <User className="h-4 w-4 mr-2" />
-            USER:
+            USERNAME:
           </label>
           <div className="flex items-center bg-background border border-primary rounded-md overflow-hidden">
-            <span className="text-primary px-3">$</span>
             <input
               id="author"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
               className="w-full bg-transparent border-none focus:outline-none p-2 text-foreground"
-              placeholder="Enter your username"
+              placeholder="e.g. ab1234"
             />
           </div>
         </div>
@@ -144,7 +143,6 @@ export default function QuestionForm({ onSuccess }: QuestionFormProps) {
           </label>
 
           <div className="flex items-center bg-background border border-primary rounded-md overflow-hidden">
-            <span className="text-primary px-3">#</span>
             <input
               id="tags"
               value={newTag}
