@@ -1,0 +1,16 @@
+{
+    "short_name": "Qriosity",
+    "name": "Qriosity - Where Curiosity Connects Campus",
+    "icons": [
+      {
+        "src": "placeholder-logo.png",
+        "sizes": "192x192 512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0F0F0F",
+    "theme_color": "#00FF90"
+  }
+  
